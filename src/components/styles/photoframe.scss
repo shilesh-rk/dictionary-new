@@ -1,0 +1,90 @@
+// Photo Frame Styles
+@use './mixins.scss' as *;
+.photo-frame {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border-radius: 12px;
+  
+    &__image {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      transform: rotate(-2deg); // Initial rotation for the image
+      transform-origin: top right; 
+      animation: swing-image 2s ease-in-out infinite; // Separate animation for image rotation
+    }
+  
+    @keyframes swing-image {
+      0% { transform: rotate(-2deg); }
+      50% { transform: rotate(-4deg); }
+      100% { transform: rotate(-2deg); }
+    }
+    @keyframes swing-icon {
+        0% { transform: rotate(45deg); }
+        50% { transform: rotate(35deg); }
+        100% { transform: rotate(45deg); }
+      }
+  
+    &__icon {
+      position: absolute;
+      height: 25px;
+      width: 25px;
+      top: 8px;
+      right: 5px;
+      background-color: var(--alpha-secondary);
+      border: none;
+      border-radius: 15%;
+      padding: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transform: rotate(45deg);
+      animation: swing-icon 2s ease-in-out infinite;
+  
+      i {
+        color: var(--secondary);
+        font-size: 16px;
+        transform: rotate(-45deg);
+      }
+      &:hover i{
+        color: var(--alpha-secondary);
+      }
+    }
+  
+    &__caption {
+      position: absolute;
+      font-weight: bold;
+      bottom: -15px;
+      left: 10px;
+      background-color: var(--secondary);
+      padding: 4px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: var(--alpha-secondary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation: swing-caption 2s ease-in-out infinite;
+    }
+  
+    @keyframes swing-caption {
+      0% { transform: rotate(32deg); }
+      50% { transform: rotate(25deg); }
+      100% { transform: rotate(32deg); }
+    }
+  
+    @media (max-width: 768px) {
+      &__image {
+        width: 90%;
+        height: 90%;
+      }
+  
+      &__icon {
+        right: 25px;
+      }
+  
+      &__caption {
+        bottom: 10px;
+        left: 10px;
+      }
+    }
+  }

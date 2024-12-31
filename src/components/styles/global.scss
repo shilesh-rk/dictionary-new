@@ -1,0 +1,26 @@
+@use './mixins.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+RO&display=swap');
+
+
+:root {
+  --primary: #81BFDA;
+  --secondary: #FADA7A;
+  --alpha-primary: #B1F0F7;
+  --alpha-secondary: #F5F0CD;
+}
+
+// General Styles
+body {
+  background-color: var(--alpha-secondary);
+  color: var(--primary);
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  @include transition-smooth();
+}
+
+button {
+  background-color: var(--alpha-primary);
+  color: var(--alpha-secondary);
+  @include hover-effect(var(--secondary));
+}

@@ -1,0 +1,220 @@
+// Cards Styles
+@use './mixins.scss' as *;
+
+.button-nav {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center;
+    gap: 20px; /* Space between the buttons */
+    margin-bottom: 20px;
+  
+    .nav-link {
+      text-decoration: none; /* Remove underline */
+      color: var(--primary); /* Default gray text */
+      font-size: 1.2em;
+      padding-bottom: 5px; /* Space for the border effect */
+      position: relative;
+  
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: transparent;
+        transition: all 0.3s ease;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+  
+      &.active {
+        color: var(--secondary); /* Active red text */
+        
+        &::after {
+          background: var(--secondary); /* Red border-bottom for active */
+          width: 100%; /* Full width */
+        }
+      }
+  
+      &:hover {
+        color: var(--alpha-primary); /* Hover effect: red text */
+      }
+    }
+  }
+  
+  .card,
+  .definition-card {
+    background: var(--alpha-secondary);
+    border: 1px solid var(--secondary);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px auto;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    word-wrap: break-word;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    @include transition-smooth();
+  
+    &:hover {
+      transform: translateY(-10px);
+      background-color: var(--alpha-secondary);
+    }
+    .definition-title, .example-title{
+      font-style: italic;
+      font-size: 20px;
+      color: var(--secondary);
+    }
+    .definition-description, .example-description{
+      font-style: italic;
+    }
+    .text-content {
+      width: 60%;
+      text-align: left;
+  
+      h3 {
+        margin: 0 0 16px;
+        @include font-style(2em, 700, var(--primary));
+      }
+  
+      p {
+        margin: 0 0 24px;
+        @include font-style(1em, 400, var(--primary));
+        line-height: 1.6;
+      }
+  
+      .audio-trigger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        text-decoration: none;
+  
+        i {
+          font-size: 1.2em;
+          color: var(--secondary);
+          @include transition-smooth();
+  
+          &:hover {
+            margin-right: 10px;
+          }
+        }
+  
+        .phonetic {
+          font-weight: bold;
+          font-size: 1.2em;
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      width: 80%;
+      flex-direction: column-reverse;
+      padding: 24px;
+  
+      .text-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+  
+        .audio-trigger {
+          justify-content: center;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      width: 95%;
+      padding: 20px;
+  
+      .text-content {
+        h3 {
+          font-size: 1.8em;
+        }
+  
+        p {
+          font-size: 1em;
+        }
+  
+        .audio-trigger {
+          .phonetic {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+  }
+.shake{
+    
+    animation: scroll .5s infinite ease;
+}
+  @keyframes scroll {
+    0%{padding:32px 32px;}
+    50%{padding:32px 40px;}
+    100%{padding:32px 32px;}
+  }
+  strong {
+    color:var(--secondary)
+  }
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .loader {
+    height: 30px;
+    aspect-ratio: 2.5;
+    --_g: no-repeat radial-gradient(farthest-side, var(--secondary) 90%, var(--alpha-secondary) 100%);
+    background: var(--_g), var(--_g), var(--_g), var(--_g);
+    background-size: 20% 50%;
+    animation: bounce 1s infinite linear;
+  }
+  
+  @keyframes bounce {
+    0%     {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%}
+    16.67% {background-position: calc(0*100%/3) 0, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%}
+    33.33% {background-position: calc(0*100%/3) 100%, calc(1*100%/3) 0, calc(2*100%/3) 50%, calc(3*100%/3) 50%}
+    50%    {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 100%, calc(2*100%/3) 0, calc(3*100%/3) 50%}
+    66.67% {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 100%, calc(3*100%/3) 0}
+    83.33% {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 100%}
+    100%   {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%}
+  }
+  .table-toggle-btn {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: var(--alpha-secondary);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.synonyms-antonyms-table {
+  width: 40vw;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.synonyms-antonyms-table th,
+.synonyms-antonyms-table td {
+  border: 1px solid var(--primary);
+  padding: 8px;
+  text-align: center;
+}
+
+.synonyms-antonyms-table th {
+  background-color: var(--alpha-primary);
+  color: var(--secondary);
+  font-weight: bold;
+}
+.nt:nth-of-type(even){
+    background-color: var(--secondary);
+    color: var(--primary);
+}
