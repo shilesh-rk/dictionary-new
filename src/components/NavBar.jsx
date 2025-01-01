@@ -38,9 +38,9 @@ const NavBar = ({ theme, isDarkTheme }) => {
       <div className="navbar">
         <div className="rounded bg1" onClick={handleTheme}>
           {icon ? (
-            <i className="fa-solid fa-moon" ></i>
+            <i className="fa-solid fa-moon" title="dark theme"></i>
           ) : (
-            <i className="fa-solid fa-sun" ></i>
+            <i className="fa-solid fa-sun" title="light theme"></i>
           )}
         </div>
 

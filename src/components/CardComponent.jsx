@@ -29,7 +29,7 @@ const CardComponent = () => {
         {/* Word Display */}
         <h3>
           <strong>Word:</strong> {
-          loading?<div className="loader"></div>:wordData?.word?.toUpperCase() || "LOREM"}
+          loading?<div className="loader"></div>:wordData?.word?.toUpperCase() || "Enter a word"}
         </h3>
        
         

@@ -19,7 +19,8 @@ export const DictionaryProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [alert, setAlert] = useState({ message: "", type: "" });
 
-  const UNSPLASH_ACCESS_KEY = import.meta.env.UNSPLASH_ACCESS_KEY;
+  // const UNSPLASH_ACCESS_KEY = import.meta.env.UNSPLASH_KEY;
+  const UNSPLASH_ACCESS_KEY = "w50ylEW3UZpqCeYtIOJCRs_D4ZsawA8x9A_PM8TqR5o";
 
   // Update local storage whenever history or favorites change
   useEffect(() => {

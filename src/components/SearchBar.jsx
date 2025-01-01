@@ -20,15 +20,18 @@ const SearchBar = () => {
         </p>
         <p className="search__subtitle">free dictionary</p>
         <div className="search__input-container">
-          <input
+          <form onSubmit={handleSubmit}>
+             <input
             className="search__input"
             type="text"
             placeholder="Search"
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <button className="search__button" onClick={handleSubmit}>
+          <button className="search__button" >
             <i className="fa fa-search"></i>
           </button>
+          </form>
+         
         </div>
       </div>
     </div>
